@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <title>Desafio 1 / 3</title>
+  </head>
+
+  <body>
+    <table class="table" id="tb_fatura">
+
+      <!-- Cabeçalho da tabela -->
+      <thead>
+        <tr>
+          <th scope="col">Lancamento</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Mês de Lançamento</th>
+        </tr>
+      </thead>
+      <!-- Lista de gastos -->
+      <tbody>
+        <tr>
+          <td>Uber</td>
+          <td>R$ 1430,00</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>PS Store</td>
+          <td>R$ 40,00</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>GPlay</td>
+          <td>R$ 37,50</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>Uber</td>
+          <td>R$ 1.382,00</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>iFood</td>
+          <td>R$ 77,00</td>
+          <td>02</td>
+        </tr>
+        <tr>
+          <td>Uber</td>
+          <td>R$ 3,00</td>
+          <td>01</td>
+        </tr>
+        <tr>
+          <td>iFood</td>
+          <td>R$ 20,34</td>
+          <td>01</td>
+        </tr>
+        <tr>
+          <td>iFood</td>
+          <td>R$ 37,40</td>
+          <td>01</td>
+        </tr>
+        <tr>
+          <td>Uber</td>
+          <td>R$ 17,70</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>GPlay</td>
+          <td>R$ 16,70</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>AppStore</td>
+          <td>R$ 15,00</td>
+          <td>02</td>
+        </tr>
+        <tr>
+          <td>Uber</td>
+          <td>R$ 96,11</td>
+          <td>02</td>
+        </tr>
+        <tr>
+          <td>GPlay</td>
+          <td>R$ 7,71</td>
+          <td>02</td>
+        </tr>
+        <tr>
+          <td>AppStore</td>
+          <td>R$ 3,33</td>
+          <td>02</td>
+        </tr>
+        <tr>
+          <td>iFood</td>
+          <td>R$ 47,98</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>AppStore</td>
+          <td>R$ 12,22</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>Uber</td>
+          <td>R$ 2,56</td>
+          <td>04</td>
+        </tr>
+        <tr>
+          <td>Uber</td>
+          <td>R$ 5,32</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>PS Store</td>
+          <td>R$ 5,44</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>PS Store</td>
+          <td>R$ 98,37</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>PS Store</td>
+          <td>R$ 78,90</td>
+          <td>01</td>
+        </tr>
+        <tr>
+          <td>GPlay</td>
+          <td>R$ 65,03</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>iFood</td>
+          <td>R$ 32,12</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>Uber</td>
+          <td>R$ 34,56</td>
+          <td>01</td>
+        </tr>
+        <tr>
+          <td>iFood</td>
+          <td>R$ 1.480,00</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>Uber</td>
+          <td>R$ 5,34</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>iFood</td>
+          <td>R$ 6,12</td>
+          <td>01</td>
+        </tr>
+        <tr>
+          <td>Uber</td>
+          <td>R$ 344,12</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>GPlay</td>
+          <td>R$ 96,10</td>
+          <td>03</td>
+        </tr>
+        <tr>
+          <td>Uber</td>
+          <td>R$ 6,09</td>
+          <td>01</td>
+        </tr>
+        <tr>
+          <td>PS Store</td>
+          <td>R$ 3,21</td>
+          <td>03</td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      
+      // Criando o Corpo do site
+      let CorpoGeral = document.body;
+      let Dados = [];
+      let tabela = document.body.querySelector("#tb_fatura");
+      let CorpoTabela = tabela.getElementsByTagName("tbody");
+      let Linhas = CorpoTabela[0].getElementsByTagName("tr");
+
+      // Condiçao para mostrar o mês
+      function Mostrar(mes) {
+        let MesSelecionado = Corpo.querySelector(`#Dados${Meses[mes]}`);
+        let BotaoSelecionado = Corpo.querySelector(`#Botao${Meses[mes]}`);
+        if (MesSelecionado.innerHTML == "") {
+          BotaoSelecionado.innerText = String(
+            // troca as setas 
+            BotaoSelecionado.innerText
+          ).replace(">", "∨");
+          MesSelecionado.innerHTML += CriarTable(mes);
+        } else {
+          BotaoSelecionado.innerText = String(
+            BotaoSelecionado.innerText
+          ).replace(">", "∨");
+          MesSelecionado.innerHTML = "";
+        }
+      }
+
+      // Função para criar a tabela
+      function CriarTable(mes) {
+        let Tabela = `    
+                <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Lancamento</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Mês de Lançamento</th>
+                    </tr>
+                </thead>
+                <tbody>`;
+        for (let i = 0; i < DadosMeses[mes].length; i++) {
+          const Dados = DadosMeses[mes][i];
+          Tabela += ` <tr>
+                <td>${Dados.Lancamento}</td>
+                <td>${Dados.Valor}</td>
+                <td>${Meses[Dados.Mes]}</td>
+            </tr>`;
+        }
+        Tabela += `</tbody></table>`;
+        return Tabela;
+      }
+
+      for (let i = 0; i < Linhas.length; i++) {
+        let LinhaAtual = Linhas[i].getElementsByTagName("td");
+        let DadosLinha = {
+          Lancamento: LinhaAtual[0].innerText,
+          Valor: LinhaAtual[1].innerText,
+          Mes: Number(LinhaAtual[2].innerText),
+        };
+        Dados.push(DadosLinha);
+      }
+
+      // Criando o container do corpo geral dos botões e das divs das tabelas
+      CorpoGeral.innerHTML = '<div id="corpo" class="container"></div>';
+      var Meses = [
+        "Geral",
+        "Janeiro",
+        "Fevereiro",
+        "Março",
+        "Abril",
+        "Maio",
+        "Junho",
+        "Julho",
+        "Agosto",
+        "Setembro",
+        "Outubro",
+        "Novembro",
+        "Dezembro",
+      ];
+
+      // Criando uma lista para cada mês
+      let Jan = [];
+      let Fev = [];
+      let Mar = [];
+      let Abr = [];
+      let Mai = [];
+      let Jun = [];
+      let Jul = [];
+      let Ago = [];
+      let Set = [];
+      let Out = [];
+      let Nov = [];
+      let Dez = [];
+      for (let i = 0; i < Dados.length; i++) {
+        let DadoAtual = Dados[i];
+        switch (DadoAtual.Mes) {
+          case 1:
+            Jan.push(DadoAtual);
+            break;
+          case 2:
+            Fev.push(DadoAtual);
+            break;
+
+          case 3:
+            Mar.push(DadoAtual);
+            break;
+
+          case 4:
+            Abr.push(DadoAtual);
+            break;
+
+          case 5:
+            Mai.push(DadoAtual);
+            break;
+
+          case 6:
+            Jun.push(DadoAtual);
+            break;
+
+          case 7:
+            Jul.push(DadoAtual);
+            break;
+
+          case 8:
+            Ago.push(DadoAtual);
+            break;
+          case 9:
+            Set.push(DadoAtual);
+            break;
+
+          case 10:
+            Out.push(DadoAtual);
+            break;
+
+          case 11:
+            Nov.push(DadoAtual);
+            break;
+
+          case 12:
+            Dez.push(DadoAtual);
+            break;
+
+          default:
+            break;
+        }
+      }
+
+      // Criando Lista Master
+      let DadosMeses = [
+        Dados,
+        Jan,
+        Fev,
+        Mar,
+        Abr,
+        Mai,
+        Jun,
+        Jul,
+        Ago,
+        Set,
+        Out,
+        Nov,
+        Dez,
+      ];
+
+      // Funçao para gerar a fatura
+      let Corpo = CorpoGeral.querySelector("#corpo");
+      for (let i = 0; i < Meses.length; i++) {
+        let Mes = Meses[i];
+        let DadosMes = DadosMeses[i];
+
+        if (DadosMes.length != 0) {
+          let TotalMes = 0;
+          for (let i = 0; i < DadosMes.length; i++) {
+            let Valor = Number(
+              String(DadosMes[i].Valor)
+                .replace(".", "")
+                .replace("R$", "")
+                .replace(",", ".")
+            );
+
+            TotalMes += Valor;
+          }
+
+          //Gerando o HTML dentro da div e criando os botões
+          Corpo.innerHTML += `<div class="card"><div>
+            <button type="button" class="btn btn-primary"  
+            style="width: 100%; text-align: left;" 
+            onclick="Mostrar(${i})" id="Botao${Mes}">
+            <strong>
+              > ${Mes} / Total Gasto: R$ ${TotalMes.toLocaleString("pt-BR")}
+            </strong>
+            </button>
+            </div><div id="Dados${Mes}"></div></div>`;
+        }
+      }
+    </script>
+  </body>
+</html>
